@@ -7,9 +7,9 @@ EXEC dbo.sp_add_job
 -- 2. Add the Step (Executing your procedure)
 EXEC sp_add_jobstep 
     @job_name = N'Daily_CSV_Import_Job', 
-    @step_name = N'Run_ProcessStagingToNormalized', 
+    @step_name = N'Run_SP_ImportSalesData', 
     @subsystem = N'TSQL', 
-    @command = N'EXEC Lumel.dbo.ProcessStagingToNormalized;', 
+    @command = N'EXEC Lumel.dbo.SP_ImportSalesData;', 
     @retry_attempts = 1, 
     @retry_interval = 5;
 
