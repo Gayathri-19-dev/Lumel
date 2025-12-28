@@ -70,3 +70,11 @@ CREATE TABLE PaymentDetails (
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
     FOREIGN KEY (PaymentMethodID) REFERENCES PaymentMaster(PaymentMethodID)
 );
+If not exists(select * from sys.COLUMNS c join sys.tables t on t.object_id = c.object_id  where c.name = 'ProductCode' and t.name = 'PRODUCT')
+ALTER TABLE PRODUCT ADD ProductCode VARCHAR(20)
+
+
+If not exists(select * from sys.COLUMNS c join sys.tables t on t.object_id = c.object_id  where c.name = 'CustomerCode' and t.name = 'Customer')
+ALTER TABLE Customer ADD CustomerCode VARCHAR(20)
+
+alter table OrderDetails alter column discount DECIMAL(10, 2)
